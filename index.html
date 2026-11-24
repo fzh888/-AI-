@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>-AI- · 绿皮猪版《愤怒的小鸟》</title>
+    <link rel="canonical" href="./public/standalone/" />
+    <meta http-equiv="refresh" content="0; url=./public/standalone/" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: #12100e;
+        color: #f3ede4;
+        text-align: center;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+      h1 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      p {
+        margin: 10px 0 0;
+        font-size: 14px;
+        opacity: 0.72;
+      }
+      a {
+        color: #ffd166;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>正在进入游戏…</h1>
+      <p>如果没有自动跳转，请点<a href="./public/standalone/">这里开始游玩</a>。</p>
+    </main>
+    <script>
+      // GitHub Pages 的站点根目录没有游戏入口，跳到离线单文件版。
+      location.replace('./public/standalone/');
+    </script>
+  </body>
+</html>
