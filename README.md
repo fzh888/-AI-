@@ -5,9 +5,7 @@
 
 ## 立即试玩
 
-**在线玩：<https://fzh888.github.io/-AI-/>**
-
-也可以离线玩：直接用浏览器打开 [`public/standalone/index.html`](public/standalone/index.html)，`file://` 双击即可，不用装任何东西。
+不用装任何东西：直接用浏览器打开 [`public/standalone/index.html`](public/standalone/index.html) 就能玩（`file://` 双击也可以）。
 
 那份产物是 `pnpm build:standalone` 打包出来的**离线单文件版**——游戏引擎和物理库全部内联，零外部依赖。
 
