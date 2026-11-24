@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+SC:wght@200..900&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --font-sans: "Noto Sans SC", "YouYuan", "Microsoft YaHei", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --shadow-2xs: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.02);
+  --shadow-xs: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.02);
+  --shadow-sm: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.04), 0px 1px 2px -1px hsl(225 27.7778% 14.1176% / 0.04);
+  --shadow-md: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.04), 0px 2px 4px -1px hsl(225 27.7778% 14.1176% / 0.04);
+  --shadow-lg: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.04), 0px 4px 6px -1px hsl(225 27.7778% 14.1176% / 0.04);
+  --shadow-xl: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.04), 0px 8px 10px -1px hsl(225 27.7778% 14.1176% / 0.04);
+  --shadow-2xl: 0px 1px 2px 0px hsl(225 27.7778% 14.1176% / 0.10);
+}
+
+:root {
+  --star: #ffcf3f;
+  --star-edge: #b8791a;
+
+  /* 木质招牌 + 金色描边的卡通 UI 调色板（与 canvas 内的配色同源） */
+  --gd-ink: #3a2a18;
+  --gd-shadow: #8a4a12;
+  --gd-cream: #fff7e2;
+  --gd-wood-1: #f9b93f;
+  --gd-wood-2: #e2811e;
+  --gd-wood-3: #b95d10;
+  --gd-wood-4: #8a3f08;
+  --gd-gold: #ffc72e;
+  --gd-gold-2: #f2a30c;
+  --gd-grass-1: #9ad955;
+  --gd-grass-2: #5aa32f;
+  --gd-stone-1: #e2dccd;
+  --gd-stone-2: #b3aa97;
+  --gd-stone-3: #7b7261;
+  --gd-sky-1: #7ec9f2;
+  --gd-sky-2: #d6f1ff;
+  --gd-blue: #62bde9;
+  --gd-blue-2: #2e8ec4;
+  --gd-red: #e0472c;
+  --gd-red-2: #a92a17;
+
+  --background: oklch(0.98 0.02 110);
+  --foreground: oklch(0.28 0.06 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.28 0.06 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.28 0.06 60);
+  --primary: oklch(0.76 0.16 65);
+  --primary-foreground: oklch(0.24 0.06 55);
+  --secondary: oklch(0.93 0.05 120);
+  --secondary-foreground: oklch(0.33 0.09 120);
+  --muted: oklch(0.95 0.02 90);
+  --muted-foreground: oklch(0.52 0.05 70);
+  --accent: oklch(0.9 0.09 95);
+  --accent-foreground: oklch(0.28 0.08 60);
+  --destructive: oklch(0.55 0.22 25);
+  --border: oklch(0.9 0.03 80);
+  --input: oklch(0.88 0.03 80);
+  --ring: oklch(0.76 0.16 65 / 35%);
+  --chart-1: oklch(0.65 0.20 140);
+  --chart-2: oklch(0.75 0.15 155);
+  --chart-3: oklch(0.55 0.12 120);
+  --chart-4: oklch(0.85 0.12 165);
+  --chart-5: oklch(0.45 0.15 135);
+  --sidebar: oklch(0.97 0.01 140);
+  --sidebar-foreground: oklch(0.25 0.05 140);
+  --sidebar-primary: oklch(0.58 0.18 140);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.94 0.02 140);
+  --sidebar-accent-foreground: oklch(0.58 0.18 140);
+  --sidebar-border: oklch(0.91 0.02 140);
+  --sidebar-ring: oklch(0.58 0.18 140 / 25%);
+  --radius: 1.3rem;
+}
+
+.dark {
+  --background: oklch(0.13 0.028 261.692);
+  --foreground: oklch(0.985 0.002 247.839);
+  --card: oklch(0.21 0.034 264.665);
+  --card-foreground: oklch(0.985 0.002 247.839);
+  --popover: oklch(0.21 0.034 264.665);
+  --popover-foreground: oklch(0.985 0.002 247.839);
+  --primary: oklch(0.648 0.2 131.684);
+  --primary-foreground: oklch(0.986 0.031 120.757);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.278 0.033 256.848);
+  --muted-foreground: oklch(0.707 0.022 261.325);
+  --accent: oklch(0.278 0.033 256.848);
+  --accent-foreground: oklch(0.985 0.002 247.839);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.871 0.15 154.449);
+  --chart-2: oklch(0.723 0.219 149.579);
+  --chart-3: oklch(0.627 0.194 149.214);
+  --chart-4: oklch(0.527 0.154 150.069);
+  --chart-5: oklch(0.448 0.119 151.328);
+  --sidebar: oklch(0.21 0.034 264.665);
+  --sidebar-foreground: oklch(0.985 0.002 247.839);
+  --sidebar-primary: oklch(0.768 0.233 130.85);
+  --sidebar-primary-foreground: oklch(0.986 0.031 120.757);
+  --sidebar-accent: oklch(0.278 0.033 256.848);
+  --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+
+  }
+}
+
+
+/*
+ * 卡通木质 UI 组件：外圈深色描边 + 奶油内环 + 底部厚阴影，
+ * 和 canvas 里的木箱/石墙共用同一套"绘本厚描边"语言。
+ */
+@layer components {
+  .gd-btn {
+    position: relative;
+    border-radius: 18px;
+    background-image: linear-gradient(180deg, var(--gd-wood-1) 0%, var(--gd-wood-2) 62%, var(--gd-wood-3) 100%);
+    color: var(--gd-cream);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 0 var(--gd-wood-4), 0 0 8px rgb(120 60 10 / 25%);
+    box-shadow:
+      inset 0 0 0 3px var(--gd-cream),
+      inset 0 6px 0 3px rgb(255 255 255 / 32%),
+      inset 0 -8px 0 3px rgb(150 70 10 / 55%),
+      0 0 0 3px var(--gd-ink),
+      0 7px 0 3px var(--gd-wood-4),
+      0 12px 18px rgb(50 30 8 / 28%);
+    transition: transform 90ms ease-out, box-shadow 90ms ease-out, filter 140ms ease-out;
+  }
+  .gd-btn:hover { filter: brightness(1.05); }
+  .gd-btn:active {
+    transform: translateY(5px);
+    box-shadow:
+      inset 0 0 0 3px var(--gd-cream),
+      inset 0 6px 0 3px rgb(255 255 255 / 26%),
+      inset 0 -4px 0 3px rgb(150 70 10 / 55%),
+      0 0 0 3px var(--gd-ink),
+      0 2px 0 2px var(--gd-wood-4),
+      0 4px 8px rgb(50 30 8 / 26%);
+  }
+  .gd-btn:disabled { filter: grayscale(0.55) brightness(0.92); opacity: 0.75; }
+
+  .gd-btn--gold {
+    background-image: linear-gradient(180deg, #ffe066 0%, var(--gd-gold) 55%, var(--gd-gold-2) 100%);
+    color: #6b3d05;
+    text-shadow: 0 2px 0 rgb(255 246 214 / 85%);
+    box-shadow:
+      inset 0 0 0 3px var(--gd-cream),
+      inset 0 6px 0 3px rgb(255 255 255 / 42%),
+      inset 0 -8px 0 3px rgb(190 118 6 / 55%),
+      0 0 0 3px var(--gd-ink),
+      0 7px 0 3px rgb(146 88 4 / 85%),
+      0 12px 18px rgb(50 30 8 / 26%);
+  }
+  .gd-btn--blue {
+    background-image: linear-gradient(180deg, #9adefb 0%, var(--gd-blue) 58%, var(--gd-blue-2) 100%);
+    color: #fff;
+    text-shadow: 0 2px 0 rgb(20 78 112 / 70%);
+    box-shadow:
+      inset 0 0 0 3px var(--gd-cream),
+      inset 0 6px 0 3px rgb(255 255 255 / 38%),
+      inset 0 -8px 0 3px rgb(24 96 138 / 55%),
+      0 0 0 3px var(--gd-ink),
+      0 7px 0 3px rgb(20 82 118 / 85%),
+      0 12px 18px rgb(20 50 70 / 26%);
+  }
+  .gd-btn--green {
+    background-image: linear-gradient(180deg, #b6e86a 0%, var(--gd-grass-1) 58%, var(--gd-grass-2) 100%);
+    color: #fff;
+    text-shadow: 0 2px 0 rgb(60 106 24 / 70%);
+    box-shadow:
+      inset 0 0 0 3px var(--gd-cream),
+      inset 0 6px 0 3px rgb(255 255 255 / 38%),
+      inset 0 -8px 0 3px rgb(74 124 28 / 55%),
+      0 0 0 3px var(--gd-ink),
+      0 7px 0 3px rgb(62 106 22 / 85%),
+      0 12px 18px rgb(30 60 12 / 26%);
+  }
+  .gd-btn--red {
+    background-image: linear-gradient(180deg, #f0735a 0%, var(--gd-red) 58%, var(--gd-red-2) 100%);
+    color: #fff;
+    text-shadow: 0 2px 0 rgb(120 26 12 / 70%);
+    box-shadow:
+      inset 0 0 0 3px var(--gd-cream),
+      inset 0 6px 0 3px rgb(255 255 255 / 34%),
+      inset 0 -8px 0 3px rgb(120 30 14 / 55%),
+      0 0 0 3px var(--gd-ink),
+      0 7px 0 3px rgb(116 28 14 / 85%),
+      0 12px 18px rgb(60 16 8 / 26%);
+  }
+
+  .gd-round { border-radius: 9999px; }
+
+  /* 石板面板：关卡卡片 / 结算 / 说明弹窗的底 */
+  .gd-panel {
+    border-radius: 24px;
+    background-image: linear-gradient(180deg, var(--gd-stone-1) 0%, #f6f1e4 40%, var(--gd-stone-2) 100%);
+    box-shadow:
+      inset 0 0 0 4px rgb(255 252 240 / 90%),
+      inset 0 -10px 0 4px rgb(120 110 92 / 30%),
+      0 0 0 4px var(--gd-ink),
+      0 10px 0 4px var(--gd-stone-3),
+      0 22px 34px rgb(30 22 8 / 28%);
+  }
+
+  /* 木牌：计分板 / 排行榜 */
+  .gd-plank {
+    border-radius: 16px;
+    background-image: linear-gradient(180deg, #c98a4a 0%, #b0702f 55%, #8d541f 100%);
+    box-shadow:
+      inset 0 0 0 3px var(--gd-cream),
+      inset 0 -7px 0 3px rgb(94 52 14 / 55%),
+      0 0 0 3px var(--gd-ink),
+      0 6px 0 3px #6f3f12,
+      0 12px 18px rgb(40 24 6 / 26%);
+  }
+
+  .gd-outline-text {
+    text-shadow:
+      0 2px 0 var(--gd-wood-4),
+      2px 0 0 var(--gd-wood-4),
+      -2px 0 0 var(--gd-wood-4),
+      0 -2px 0 var(--gd-wood-4),
+      0 4px 6px rgb(60 30 6 / 35%);
+  }
+
+  /* 星星弹出：缩放 + 回弹 + 金色光晕必须是同一个 animation，
+     拆成两个类会互相覆盖 animation 简写，只剩发光不弹出。 */
+  .gd-star-pop {
+    transform-origin: 50% 55%;
+    animation: gd-star-pop 640ms cubic-bezier(0.22, 1.6, 0.36, 1) both;
+  }
+
+  /* 整组星星背后的一层金色光斑：先亮一下再散开（作用在伪元素上，
+     不要和 .gd-star-pop 抢同一个元素的 animation 简写） */
+  .gd-star-stage {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .gd-star-stage::before {
+    content: '';
+    position: absolute;
+    inset: -20px -30px;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 9999px;
+    background: radial-gradient(closest-side, rgb(255 214 90 / 60%), rgb(255 214 90 / 0%));
+    opacity: 0;
+    animation: gd-star-stage-glow 1000ms ease-out 120ms both;
+  }
+
+  @keyframes gd-star-stage-glow {
+    0% { opacity: 0; transform: scale(0.55); }
+    32% { opacity: 1; transform: scale(1.02); }
+    100% { opacity: 0; transform: scale(1.25); }
+  }
+
+  @keyframes gd-star-pop {
+    0% {
+      transform: scale(0.12) rotate(-30deg);
+      opacity: 0;
+      filter: brightness(2) drop-shadow(0 0 0 rgb(255 214 90 / 0%));
+    }
+    42% {
+      transform: scale(1.45) rotate(11deg);
+      opacity: 1;
+      filter: brightness(1.4) drop-shadow(0 0 13px rgb(255 214 90 / 95%));
+    }
+    68% {
+      transform: scale(0.94) rotate(-4deg);
+      filter: brightness(1.15) drop-shadow(0 0 8px rgb(255 214 90 / 60%));
+    }
+    86% {
+      transform: scale(1.06) rotate(1.5deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+      filter: brightness(1) drop-shadow(0 0 0 rgb(255 214 90 / 0%));
+    }
+  }
+
+  /* 失败面板：砸下来以后再左右晃两下，比单纯淡入更"被打了" */
+  .gd-panel-shake { animation: gd-panel-shake 620ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
+
+  @keyframes gd-panel-shake {
+    0% { transform: translateY(-16px) scale(0.94) rotate(-2deg); opacity: 0; }
+    22% { transform: translateY(4px) scale(1.01) rotate(1.4deg); opacity: 1; }
+    40% { transform: translateX(-7px) rotate(-1.4deg); }
+    56% { transform: translateX(6px) rotate(1deg); }
+    72% { transform: translateX(-3px) rotate(-0.6deg); }
+    88% { transform: translateX(2px) rotate(0.3deg); }
+    100% { transform: translateX(0) rotate(0); opacity: 1; }
+  }
+
+  /* 失败面板里的猪：垂头丧气地左右摇 */
+  .gd-sad-wobble { animation: gd-sad-wobble 1500ms ease-in-out infinite; }
+
+  @keyframes gd-sad-wobble {
+    0%, 100% { transform: rotate(-5deg) translateY(0); }
+    50% { transform: rotate(5deg) translateY(2px); }
+  }
+
+  .gd-float-in { animation: gd-float-in 260ms cubic-bezier(0.2, 1.4, 0.4, 1) both; }
+
+  @keyframes gd-float-in {
+    0% { transform: translateY(14px) scale(0.94); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  /* 进场过渡：切关/重开时画面淡入，避免新场景"啪"地一下跳出来 */
+  .gd-scene-in { animation: gd-scene-in 220ms ease-out both; }
+
+  @keyframes gd-scene-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* 连锁徽标：每涨一次重播（React 端用 key 递增触发重挂载，standalone 用 reflow 重加类） */
+  .gd-chain-pop { animation: gd-chain-pop 300ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+  @keyframes gd-chain-pop {
+    0% { transform: scale(1); }
+    38% { transform: scale(1.24); }
+    100% { transform: scale(1); }
+  }
+}
+
+/* 低动态效果模式：削减装饰性运动与强刺激，但保留必要的状态反馈（星星、分数、连锁、面板进出） */
+.gd-low-motion .gd-star-pop,
+.gd-low-motion .gd-sad-wobble {
+  animation: none;
+}
+
+.gd-low-motion .gd-star-pop {
+  filter: drop-shadow(0 0 6px rgba(255, 200, 60, 0.7));
+}
+
+.gd-low-motion .gd-float-in,
+.gd-low-motion .gd-panel-shake {
+  animation-duration: 130ms;
+}
+
+/* 低动态模式下场景仍然淡入（这是"状态过渡"不是装饰），但更快一些 */
+.gd-low-motion .gd-scene-in {
+  animation-duration: 120ms;
+}

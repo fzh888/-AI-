@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#9fd8f4" />
+    <title>贪吃的绿皮猪</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="stage">
+      <canvas id="game"></canvas>
+
+      <div id="hud" class="hud" hidden>
+        <div class="hud-top">
+          <div class="gd-plank plank">
+            <span class="lv-id" id="levelId">1-1</span>
+            <span id="levelName"></span>
+          </div>
+          <div class="hud-right">
+            <div class="chain-badge" id="chainBadge" hidden>连锁 ×<span id="chainNum">0</span></div>
+            <div class="gd-plank plank score"><span class="label">分数</span><span id="score">0</span></div>
+            <button type="button" class="gd-btn icon" data-act="zoom-in" aria-label="放大">+</button>
+            <button type="button" class="gd-btn icon" data-act="zoom-out" aria-label="缩小">−</button>
+            <button type="button" class="gd-btn icon" data-act="achievements" aria-label="成就">★</button>
+            <button type="button" class="gd-btn icon" data-act="retry" aria-label="重玩">↻</button>
+            <button type="button" class="gd-btn icon" data-act="menu" aria-label="菜单">☰</button>
+          </div>
+        </div>
+        <div class="hud-bottom">
+          <div class="pigbar" id="pigbar"></div>
+          <p class="hint" id="hint"></p>
+        </div>
+      </div>
+
+      <div id="overlay" class="overlay"></div>
+      <div class="rotate-tip">横屏玩更爽：把手机横过来</div>
+    </div>
+    <script src="./game.js"></script>
+  </body>
+</html>
